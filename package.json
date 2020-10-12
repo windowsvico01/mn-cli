@@ -7,6 +7,12 @@
     "mnlt": "bin/mn.js",
     "mnlt-init": "bin/mn-init.js"
   },
+  "keywords": [
+    "vue",
+    "mnlt",
+    "vuex",
+    "vant"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

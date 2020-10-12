@@ -33,8 +33,7 @@ program.version('1.0.0');
  */
 
 program
-  .usage('create <模板名称> [项目名称]')
-  .option('-c, --create <模板名称> [项目名称]', '创建一个项目', 'mn-template moonlt')
+  .usage('<模板名称> [项目名称]')
   .option('--test', 'show first test', true)
   .option('--clone', 'use git clone')
   .option('--offline', 'use cached template')
@@ -47,7 +46,7 @@ program.on('--help', () => {
   console.log('  Examples:')
   console.log()
   console.log(chalk.gray('    创建一个标准模板：'))
-  console.log('    $ vue init webpack【模板名称】 my-project【项目名称】')
+  console.log('    $ mnlt-init mn-template【模板名称】 my-project【项目名称】')
   console.log()
 })
 
@@ -65,14 +64,14 @@ help()
  * Settings.
  */
 
-let template = program.args[0]
-const hasSlash = template.indexOf('/') > -1
-const rawName = program.args[1]
-const inPlace = !rawName || rawName === '.'
-const name = inPlace ? path.relative('../', process.cwd()) : rawName
-const to = path.resolve(rawName || '.')
-const clone = program.clone || false
-const tmp = path.join(home, '.mn-templates', template.replace(/[\/:]/g, '-'))
+let template = program.args[0] || 'mn-template';
+const hasSlash = template.indexOf('/') > -1;
+const rawName = program.args[1];
+const inPlace = !rawName || rawName === '.';
+const name = inPlace ? path.relative('../', process.cwd()) : rawName;
+const to = path.resolve(rawName || '.');
+const clone = program.clone || false;
+const tmp = path.join(home, '.mn-templates', template.replace(/[\/:]/g, '-'));
 if (program.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
   template = tmp
