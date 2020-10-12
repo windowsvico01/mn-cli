@@ -33,9 +33,10 @@ program.version('1.0.0');
  */
 
 program
-  .usage('<模板名称> [项目名称]')
+  .usage('create <模板名称> [项目名称]')
+  .option('-c, --create <模板名称> [项目名称]', '创建一个项目', 'mn-template moonlt')
   .option('--test', 'show first test', true)
-  .option('-c, --clone', 'use git clone')
+  .option('--clone', 'use git clone')
   .option('--offline', 'use cached template')
 
 /**
