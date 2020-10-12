@@ -4,8 +4,8 @@
   "description": "mn-cli",
   "main": "index.js",
   "bin": {
-    "mnlt": "bin/mn",
-    "mnlt-init": "bin/mn-init"
+    "mnlt": "bin/mn.js",
+    "mnlt-init": "bin/mn-init.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
